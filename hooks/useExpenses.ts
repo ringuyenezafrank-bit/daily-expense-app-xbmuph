@@ -30,11 +30,15 @@ export const useExpenses = () => {
 
   const saveExpenses = async (newExpenses: Expense[]) => {
     try {
-      await AsyncStorage.setItem(EXPENSES_STORAGE_KEY, JSON.stringify(newExpenses));
+      // Update state immediately for instant UI updates
       setExpenses(newExpenses);
+      // Then save to AsyncStorage
+      await AsyncStorage.setItem(EXPENSES_STORAGE_KEY, JSON.stringify(newExpenses));
       console.log('Saved expenses:', newExpenses.length);
     } catch (error) {
       console.error('Error saving expenses:', error);
+      // Revert state if save failed
+      loadExpenses();
     }
   };
 
@@ -45,11 +49,13 @@ export const useExpenses = () => {
       createdAt: Date.now(),
     };
     const updatedExpenses = [...expenses, newExpense];
+    console.log('Adding expense:', newExpense);
     await saveExpenses(updatedExpenses);
   };
 
   const deleteExpense = async (id: string) => {
     const updatedExpenses = expenses.filter(expense => expense.id !== id);
+    console.log('Deleting expense with id:', id);
     await saveExpenses(updatedExpenses);
   };
 
@@ -57,6 +63,7 @@ export const useExpenses = () => {
     const updatedExpenses = expenses.map(expense =>
       expense.id === id ? { ...expense, ...updatedExpense } : expense
     );
+    console.log('Updating expense with id:', id);
     await saveExpenses(updatedExpenses);
   };
 

@@ -36,7 +36,14 @@ export default function AddExpenseScreen() {
         date: new Date().toISOString(),
       });
       
-      console.log('Expense added successfully');
+      console.log('Expense added successfully - navigating back');
+      
+      // Clear form
+      setAmount('');
+      setDescription('');
+      setCategory('Food');
+      
+      // Navigate back immediately after adding
       router.back();
     } catch (error) {
       console.error('Error adding expense:', error);

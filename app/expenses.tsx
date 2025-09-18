@@ -45,7 +45,7 @@ export default function ExpensesScreen() {
             <View>
               <Text style={commonStyles.textSecondary}>Total Expenses</Text>
               <Text style={[commonStyles.title, { color: colors.accent }]}>
-                ${totalAmount.toFixed(2)}
+                {totalAmount.toLocaleString('en-RW')} RWF
               </Text>
             </View>
             <View style={{ alignItems: 'flex-end' }}>
