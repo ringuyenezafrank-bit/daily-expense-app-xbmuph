@@ -115,7 +115,7 @@ export default function ReportsScreen() {
         <View style={[commonStyles.section, commonStyles.card]}>
           <Text style={styles.summaryLabel}>{getPeriodLabel()} Total</Text>
           <Text style={[styles.summaryAmount, { color: colors.accent }]}>
-            ${totalAmount.toFixed(2)}
+            {totalAmount.toLocaleString('en-RW')} RWF
           </Text>
           <Text style={commonStyles.textSecondary}>
             {periodExpenses.length} transactions
@@ -147,7 +147,7 @@ export default function ReportsScreen() {
                         <Text style={styles.categoryName}>{item.category}</Text>
                       </View>
                       <View style={styles.categoryStats}>
-                        <Text style={styles.categoryAmount}>${item.amount.toFixed(2)}</Text>
+                        <Text style={styles.categoryAmount}>{item.amount.toLocaleString('en-RW')} RWF</Text>
                         <Text style={styles.categoryPercentage}>{item.percentage.toFixed(1)}%</Text>
                       </View>
                     </View>
@@ -179,7 +179,7 @@ export default function ReportsScreen() {
                     </View>
                     <View style={styles.topCategoryInfo}>
                       <Text style={styles.topCategoryName}>{item.category}</Text>
-                      <Text style={styles.topCategoryAmount}>${item.amount.toFixed(2)}</Text>
+                      <Text style={styles.topCategoryAmount}>{item.amount.toLocaleString('en-RW')} RWF</Text>
                     </View>
                   </View>
                 ))}

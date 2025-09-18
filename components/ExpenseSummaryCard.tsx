@@ -27,7 +27,7 @@ const ExpenseSummaryCard: React.FC<ExpenseSummaryCardProps> = ({
         </View>
         <Text style={styles.title}>{title}</Text>
       </View>
-      <Text style={[styles.amount, { color }]}>${amount.toFixed(2)}</Text>
+      <Text style={[styles.amount, { color }]}>{amount.toLocaleString('en-RW')} RWF</Text>
       {subtitle && <Text style={styles.subtitle}>{subtitle}</Text>}
     </View>
   );

@@ -61,16 +61,16 @@ export default function AddExpenseScreen() {
         <View style={commonStyles.section}>
           {/* Amount Input */}
           <View style={styles.amountContainer}>
-            <Text style={styles.currencySymbol}>$</Text>
             <TextInput
               style={styles.amountInput}
               value={amount}
               onChangeText={setAmount}
-              placeholder="0.00"
+              placeholder="0"
               keyboardType="numeric"
               placeholderTextColor={colors.textSecondary}
               autoFocus
             />
+            <Text style={styles.currencySymbol}>RWF</Text>
           </View>
 
           {/* Category Selection */}
@@ -149,10 +149,10 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
   },
   currencySymbol: {
-    fontSize: 48,
-    fontWeight: '300',
+    fontSize: 32,
+    fontWeight: '600',
     color: colors.textSecondary,
-    marginRight: 8,
+    marginLeft: 8,
   },
   amountInput: {
     fontSize: 48,

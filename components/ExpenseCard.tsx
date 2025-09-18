@@ -33,7 +33,7 @@ const ExpenseCard: React.FC<ExpenseCardProps> = ({ expense, onPress, onDelete })
           </View>
         </View>
         <View style={styles.rightSection}>
-          <Text style={styles.amount}>-${expense.amount.toFixed(2)}</Text>
+          <Text style={styles.amount}>-{expense.amount.toLocaleString('en-RW')} RWF</Text>
           {onDelete && (
             <TouchableOpacity style={styles.deleteButton} onPress={onDelete}>
               <Icon name="trash" size={16} color={colors.error} />
